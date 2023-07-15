@@ -1,4 +1,12 @@
 # javaproject1
+#First execute CarModels.java
+#then CarSelected.java and after that execute Carprice.java
+
+
+
+
+#otherwise execute below code
+
 import java.util.Scanner;
 import java.lang.Math;
 public class CarModels {
