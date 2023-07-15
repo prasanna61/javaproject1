@@ -3,35 +3,35 @@ package Miniproject;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class CarPrice extends CarSelected {
-	int discount;
-	int insurence;
-	int accessories;
+class PriceOfCar extends SelectedCar {
+	int dis;
+	int ins;
+	int access;
 	private final int rto = 113990;
-	private final int tcs_charges = 11000;
-	int total_cost;
+	private final int tcs_char = 11000;
+	int total_amount;
 	Scanner sc = new Scanner(System.in);
 
-	public void discount_amount() {
-		System.out.println("Enter discount type");
-		String discount_type = sc.next();
-		if (discount_type.equals("percentage")) {
+	public void discount() {
+		System.out.println("Enter discount type whether percentage or amount");
+		String dis_type = sc.next();
+		if (dis_type.equals("percentage")) {
 			System.out.println("Enter discount : ");
-			int discount_percentage = sc.nextInt();
-			double discount_value = (cost * discount_percentage) / 100;
-			int discount_amount = (int) (discount_value);
-			discount = Math.min(discount_amount, 30000);
+			int dis_perc = sc.nextInt();
+			double dis_val = (cost * dis_perc) / 100;
+			int dis_amount = (int) (dis_val);
+			dis = Math.min(dis_amount, 30000);
 
 		} else {
 			System.out.println("Enter discount : ");
-			discount = Math.min(sc.nextInt(), 30000);
+			dis = Math.min(sc.nextInt(), 30000);
 		}
 
 	}
 
 	public void totalCost() {
-		total_cost = (cost + rto + insurence + tcs_charges + accessories) - discount;
-		System.out.println("Total cost: " + total_cost);
+		total_amount = (cost + rto + ins + tcs_char + access) - dis;
+		System.out.println("Total cost: " + total_amount);
 
 	}
 
@@ -42,37 +42,38 @@ public class CarPrice extends CarSelected {
 		System.out.print("Do you need Additional Accessories: ");
 		String accessories_need = sc.next();
 		if (Insurence_need.equals("no") && accessories_need.equals("no")) {
-			discount_amount();
-			insurence = 0;
-			accessories = 0;
+			discount();
+			ins= 0;
+			access = 0;
 			totalCost();
 
 		} else if (Insurence_need.equals("no") && accessories_need.equals("yes")) {
-			discount_amount();
-			insurence = 0;
-			accessories = 15000;
+			discount();
+			ins = 0;
+			access = 15000;
 			totalCost();
 
 		} else if (Insurence_need.equals("yes") && accessories_need.equals("no")) {
-			discount_amount();
-			insurence = 47300;
-			accessories = 0;
+			discount();
+			ins= 47300;
+			access= 0;
 			totalCost();
 		} else {
-			discount_amount();
-			insurence = 47300;
-			accessories = 15000;
+			discount();
+			ins = 47300;
+			access= 15000;
 			totalCost();
 
 		}
 	}
 
 	public static void main(String args[]) {
-		CarPrice c = new CarPrice();
-		c.model();
-		c.carPrice();
+		PriceOfCar c = new PriceOfCar();
+		//c.model();
+		c.Price();
 		c.accessoriesAndinsurence();
 
 	}
 
 }
+
