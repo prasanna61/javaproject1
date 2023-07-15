@@ -1,44 +1,25 @@
 package Mainproject;
 import java.util.Scanner;
 
-public class CarSelected  extends CarModels{
+class SelectedCar  extends CarInformation{
 	int cost;
 	
-	public int carPrice() {
+	public int Price() {
 		
 	Scanner sc=new Scanner(System.in);
-	System.out.print("Select car model : ");
-	String carmodel=sc.nextLine();
-	switch(carmodel) {
-	case "Polo Trendline":
-		cost=870000;
-		break;
-	
-	case "Polo Highline":
-		cost=1009000;
-		break;
-	case "Virtus Trendline":
-		cost=1105000;
-		break;
-	case "Virtus Highline":
-		cost=1308000;
-		break;
-	case "Taigun Trendline":
-		cost=1489000;
-		break;
-	case "Taigun Highline":
-		cost=1542000;
-		break;
-	case "Taigun Topline":
-		cost=1771000;
-		break;
-	default:
-		System.out.println("Enter valid car model");
-		cost=0;
-		break;
+	System.out.print("Select the car model : ");
+	String model=sc.nextLine();
+	switch(model) {
+	case "Polo Trendline"->cost=870000;
+	case "Polo Highline"->cost=1009000;
+	case "Virtus Trendline"->cost=1105000;
+	case "Virtus Highline"->cost=1308000;
+	case "Taigun Trendline"->cost=1489000;
+	case "Taigun Highline"->cost=1542000;
+	case "Taigun Topline"->cost=1771000;
+	default->cost=0;
 	}
 	return cost;
 	
 	}    
 }
-
